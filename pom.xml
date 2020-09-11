@@ -18,7 +18,7 @@
 
 	<name>Morphometrix Genie</name>
 	<description>Automatic morphometrics helper for imagej</description>
-	<url>https://github.com/[MY-ORG]/[MY-REPO]</url>
+	<url>https://github.com/spiderpig36/morphometrix-genie</url>
 	<inceptionYear>2020</inceptionYear>
 	<organization>
 		<name>Museum of Natural History</name>
@@ -53,14 +53,14 @@
 	</mailingLists>
 
 	<scm>
-		<connection>scm:git:git://github.com/[MY-ORG]/[MY-REPO]</connection>
-		<developerConnection>scm:git:git@github.com:[MY-ORG]/[MY-REPO]</developerConnection>
+		<connection>scm:git:git://github.com/spiderpig36/morphometrix-genie</connection>
+		<developerConnection>scm:git:git@github.com:spiderpig36/morphometrix-genie</developerConnection>
 		<tag>HEAD</tag>
-		<url>https://github.com/[MY-ORG]/[MY-REPO]</url>
+		<url>https://github.com/spiderpig36/morphometrix-genie</url>
 	</scm>
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>http://github.com/[MY-ORG]/[MY-REPO]/issues</url>
+		<url>https://github.com/spiderpig36/morphometrix-genie/issues</url>
 	</issueManagement>
 	<ciManagement>
 		<system>None</system>
