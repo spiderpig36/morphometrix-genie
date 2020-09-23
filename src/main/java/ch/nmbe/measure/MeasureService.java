@@ -1,4 +1,4 @@
-package tutorials.measure;
+package ch.nmbe.measure;
 
 import ij.ImageListener;
 import ij.ImagePlus;
