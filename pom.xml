@@ -14,7 +14,7 @@
 
 	<groupId>ch.nmbe</groupId>
 	<artifactId>morphometrix-genie</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>0.2.0</version>
 
 	<name>Morphometrix Genie</name>
 	<description>Automatic morphometrics helper for imagej</description>

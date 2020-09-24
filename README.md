@@ -13,6 +13,8 @@ containing the class and jar files.
 ## Installation
 Copy the morphometrix-genie-*.jar and the classes/Extended_Line_Tool.class
 to your imagej-directory/plugins folder. Now restart ImageJ.
+If you use a GNU/Linux distibution make sure you use the portable version of
+ImageJ. The packaged version cases problems when installing additional plugins.
 
 ## Commands
 In your ImageJ, there should now be some new menu
