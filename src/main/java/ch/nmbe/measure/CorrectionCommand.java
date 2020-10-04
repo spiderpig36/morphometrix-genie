@@ -9,7 +9,7 @@ import java.io.File;
 import java.util.Arrays;
 
 @Plugin(type = Command.class, headless = true,
-        menuPath = "Analyze>Batch Measure>Generate Measure Table")
+        menuPath = "Analyze>Batch Measure>Correction")
 public class CorrectionCommand implements Command {
     @Parameter(style = "files,extensions:tiff",  label = "Files to correct", description = "Select all files you want to open again")
     private File[] filesToCorrect;
