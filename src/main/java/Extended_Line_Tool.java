@@ -14,7 +14,12 @@ public class Extended_Line_Tool extends PlugInTool {
         int sy = e.getY();
 
         Roi roi = imp.getRoi();
-        if (roi instanceof ExtendedLine && roi.isHandle(sx, sy) != -1) {
+        if (roi  instanceof Line && roi.isHandle(sx, sy) != -1) {
+            if (!(roi instanceof ExtendedLine)) {
+                imp.getOverlay().remove(roi);
+                roi = new ExtendedLine(((Line) roi).x1, ((Line) roi).y1, ((Line) roi).x2, ((Line) roi).y2);
+                imp.setRoi(roi);
+            }
             ((ExtendedLine) roi).mouseDownInHandle(roi.isHandle(sx, sy), sx, sy);
         } else {
             Roi newRoi = new ExtendedLine(sx, sy, imp);
@@ -46,6 +51,10 @@ public class Extended_Line_Tool extends PlugInTool {
     private static class ExtendedLine extends Line {
         public ExtendedLine(int sx, int sy, ImagePlus imp) {
             super(sx, sy, imp);
+        }
+
+        public ExtendedLine(int ox1, int oy1, int ox2, int oy2) {
+            super(ox1, oy1, ox2, oy2);
         }
 
         @Override
