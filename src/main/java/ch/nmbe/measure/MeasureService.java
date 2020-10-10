@@ -60,11 +60,11 @@ public class MeasureService extends AbstractService implements ImageJService, Im
     @Override
     public void initialize() {
         ImagePlus.addImageListener(this);
-        Roi.addRoiListener(this);
     }
 
     @Override
     public void imageOpened(ImagePlus imp) {
+        Roi.addRoiListener(this);
     }
 
     @Override
@@ -77,6 +77,7 @@ public class MeasureService extends AbstractService implements ImageJService, Im
                 fileSaver.saveAsTiff(this.currentPath());
             }
 
+            Roi.removeRoiListener(this);
             nextImage();
         }
     }
@@ -100,12 +101,14 @@ public class MeasureService extends AbstractService implements ImageJService, Im
     }
 
     private void updateState() {
-        try {
-            FileWriter writer = new FileWriter(this.stateFile, true);
-            writer.write(this.currentName() + "\n");
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (this.stateFile != null) {
+            try {
+                FileWriter writer = new FileWriter(this.stateFile, true);
+                writer.write(this.currentName() + "\n");
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

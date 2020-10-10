@@ -16,7 +16,12 @@ public class Extended_Line_Tool extends PlugInTool {
         Roi roi = imp.getRoi();
         if (roi  instanceof Line && roi.isHandle(sx, sy) != -1) {
             if (!(roi instanceof ExtendedLine)) {
-                imp.getOverlay().remove(roi);
+                imp.deleteRoi();
+                for (int i = 0; i < imp.getOverlay().size();i++) {
+                    if (imp.getOverlay().get(i).toString().equals(roi.toString())) {
+                        imp.getOverlay().remove(i);
+                    }
+                }
                 roi = new ExtendedLine(((Line) roi).x1, ((Line) roi).y1, ((Line) roi).x2, ((Line) roi).y2);
                 imp.setRoi(roi);
             }
