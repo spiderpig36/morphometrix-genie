@@ -7,6 +7,8 @@ import org.scijava.plugin.Plugin;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Plugin(type = Command.class, headless = true,
         menuPath = "Analyze>Batch Measure>Correction")
@@ -19,7 +21,11 @@ public class CorrectionCommand implements Command {
 
     @Override
     public void run() {
-        measureService.setFiles(Arrays.asList(filesToCorrect));
+        List<File> files = Arrays.stream(filesToCorrect)
+                .filter((file -> file.getName().endsWith(".tif")))
+                .collect(Collectors.toList());
+
+        measureService.setFiles(files);
         measureService.startMeasureBatch();
         measureService.nextImage();
     }
