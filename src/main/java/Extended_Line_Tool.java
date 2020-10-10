@@ -54,6 +54,8 @@ public class Extended_Line_Tool extends PlugInTool {
     }
 
     private static class ExtendedLine extends Line {
+        private static final int HELPER_LENGTH = 80;
+
         public ExtendedLine(int sx, int sy, ImagePlus imp) {
             super(sx, sy, imp);
         }
@@ -80,7 +82,7 @@ public class Extended_Line_Tool extends PlugInTool {
             }
 
             Vector2D lineVector = new Vector2D(sx1 - sx2, sy1 - sy2).normalize();
-            Vector2D helperVector = new Vector2D(lineVector.getY(), lineVector.getX() * -1).scalarMultiply(50);
+            Vector2D helperVector = new Vector2D(lineVector.getY(), lineVector.getX() * -1).scalarMultiply(HELPER_LENGTH * this.getMagnification());
 
             g.setColor(Color.RED);
             this.drawHelperLine(sx1, sy1, helperVector, g);
@@ -90,18 +92,18 @@ public class Extended_Line_Tool extends PlugInTool {
         private void drawHelperLine(int x, int y, Vector2D vector, Graphics g) {
             g.drawLine((int)(x + vector.getX()),
                     (int)(y + vector.getY()),
-                    (int)(x + vector.getX() * -1),
-                    (int)(y + vector.getY() * -1));
+                    (int)(x - vector.getX()),
+                    (int)(y - vector.getY()));
         }
 
         @Override
         protected void updateClipRect() {
             super.updateClipRect();
 
-            clipX -= 101;
-            clipY -= 101;
-            clipHeight += 202;
-            clipWidth += 202;
+            clipX -= 301;
+            clipY -= 301;
+            clipHeight += 402;
+            clipWidth += 402;
         }
 
         @Override
